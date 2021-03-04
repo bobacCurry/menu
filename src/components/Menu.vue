@@ -18,9 +18,20 @@
     </div>
     <div class="order-frame">
       <div class="main-title order-title">订单详情</div>
+      <br/>
       <div v-if="!refresh">
-        <div v-for="(item,key) in orderList" class="flex-between-center order-list-item">
-          <div>{{item.code}}*{{item.count}} ({{item.title}})</div>
+        <div v-for="(item,key) in orderList" :key="key" class="flex-between-center order-list-item">
+          <div class="flex-start-center" style="width: 50%">
+            <div style="width: 40%;text-align: left;">{{item.code}}*{{item.count}}</div>
+            <div style="width: 60%;text-align: left;">{{item.title}}</div>
+          </div>
+          <div>{{item.amount}}</div>
+        </div>
+        <div v-for="(item,key) in welwareList" :key="key" class="flex-between-center order-list-item">
+          <div class="flex-start-center" style="width: 50%">
+            <div style="width: 40%;text-align: left;">{{item.code}}*{{item.count}}</div>
+            <div style="width: 60%;text-align: left;">{{item.title}}</div>
+          </div>
           <div>{{item.amount}}</div>
         </div>
         <br>
@@ -41,6 +52,7 @@ export default {
       welware:[],
       order:{},
       orderList:[],
+      welwareList:[],
       total:0,
       refresh: false
     }
@@ -52,6 +64,8 @@ export default {
     this.menus = menus
 
     this.welware = welware
+
+    console.log(this.welware)
 
     for (let i = 0; i < this.menus.length; i++) {
 
@@ -109,7 +123,15 @@ export default {
 
       this.total = total
 
-      console.log(this.orderList,this.total)
+      for (var i = this.welware.length - 1; i >= 0; i--) {
+
+        let { min, max, free } = this.welware[i]
+
+        if (this.total>=min&&this.total<max) {
+
+          this.welwareList = free
+        }
+      }
 
       this.refresh = true
 

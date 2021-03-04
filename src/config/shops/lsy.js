@@ -96,29 +96,25 @@ export default  {
 		}
 	],
 	welware:[
-		{ min: 1500, max: 3000, mount:1, free: [
+		{ min: 1500, max: 3000, free: [
 
-			{ code:' E4', title:'鱼丸', mount:1, unit:'份', must: 1 }
-
-		] },
-		{ min: 3000, max: 5000, mount:2, free: [ 
-
-			{ code:'A11', title:'鸡胗', mount:1, unit:'串', must: 1 },
-
-			{ code:' G2', title:'雪花', mount:1, unit:'瓶', must: 0 },
-
-			{ code:' G6', title:'可乐', mount:1, unit:'瓶', must: 0 },
+			{ code:' E4', title:'鱼丸', count:1, amount:'free', unit:'份' }
 
 		] },
-		{ min: 5000, max: 1000000, mount:3, free: [ 
+		{ min: 3000, max: 5000, free: [ 
 
-			{ code:'A11', title:'鸡胗', mount:1, unit:'串', must: 1 },
+			{ code:'A11', title:'鸡胗', count:1, amount:'free', unit:'串' },
 
-			{ code:'B12', title:'鱼豆腐', mount:1, unit:'份', must: 1 },
+			{ code:' G6', title:'可乐', count:3, amount:'free', unit:'瓶' },
 
-			{ code:' G2', title:'雪花', mount:1, unit:'瓶', must: 0 },
+		] },
+		{ min: 5000, max: 1000000, free: [ 
 
-			{ code:' G6', title:'可乐', mount:1, unit:'瓶', must: 0 },
+			{ code:'A11', title:'鸡胗', count:1, amount:'free', unit:'串' },
+
+			{ code:'B12', title:'鱼豆腐', count:1, amount:'free', unit:'份' },
+
+			{ code:' G6', title:'可乐', count:3, amount:'free', unit:'瓶' },
 
 		] }
 	]
