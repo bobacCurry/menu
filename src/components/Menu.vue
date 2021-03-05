@@ -20,15 +20,15 @@
       <div class="main-title order-title">订单详情</div>
       <br/>
       <div v-if="!refresh">
-        <div v-for="(item,key) in orderList" :key="key" class="flex-between-center order-list-item">
-          <div class="flex-start-center" style="width: 50%">
+        <div v-for="(item,key) in orderList" :key="`order-${key}`" class="flex-between-center order-list-item">
+          <div class="flex-start-center" style="width: 60%">
             <div style="width: 40%;text-align: left;">{{item.code}}*{{item.count}}</div>
             <div style="width: 60%;text-align: left;">{{item.title}}</div>
           </div>
           <div>{{item.amount}}</div>
         </div>
-        <div v-for="(item,key) in welwareList" :key="key" class="flex-between-center order-list-item">
-          <div class="flex-start-center" style="width: 50%">
+        <div v-for="(item,key) in welwareList" :key="`free-${key}`" class="flex-between-center order-list-item">
+          <div class="flex-start-center" style="width: 60%">
             <div style="width: 40%;text-align: left;">{{item.code}}*{{item.count}}</div>
             <div style="width: 60%;text-align: left;">{{item.title}}</div>
           </div>
@@ -39,12 +39,16 @@
           <div>总计</div>
           <div>{{this.total}}</div>
         </div>
+        <div style="padding: 50px">
+          <mt-button type="primary" size="small" v-clipboard:copy="orderContent" v-clipboard:success="onCopy">复制订单信息</mt-button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
 import ShopData from '../config/shops/lsy.js'
+import { Toast } from 'mint-ui';
 export default {
   data(){
     return {
@@ -53,8 +57,10 @@ export default {
       order:{},
       orderList:[],
       welwareList:[],
+      orderContent:'',
       total:0,
-      refresh: false
+      refresh: false,
+      wait:false
     }
   },
   mounted(){
@@ -84,8 +90,21 @@ export default {
     }
   },
   methods:{
+    onCopy(){
+
+      Toast({ message: '复制成功',iconClass: 'icon icon-success' })
+    
+    },
     add(code){
+
+      if (this.wait) {
+
+        return
       
+      }
+      
+      this.wait = true
+
       this.order[code].count = this.order[code].count + 1
 
       this.order[code].amount = this.order[code].count*this.order[code].price
@@ -94,10 +113,18 @@ export default {
     },
     del(code){
 
+      if (this.wait) {
+      
+        return
+      
+      }
+
       if (this.order[code].count<=0) {
 
         return 
       }
+
+      this.wait = true
 
       this.order[code].count = this.order[code].count - 1
 
@@ -111,6 +138,10 @@ export default {
 
       this.orderList = []
 
+      this.welwareList = []
+
+      this.orderContent = ''
+
       for (let i in this.order) {
 
         if (this.order[i].count>0) {
@@ -118,12 +149,14 @@ export default {
           total = total + this.order[i].amount
 
           this.orderList.push(this.order[i])
+
+          this.orderContent = `${this.orderContent}${this.order[i].code}*${this.order[i].count}  ${this.order[i].amount}\n`
         }
       }
 
       this.total = total
 
-      for (var i = this.welware.length - 1; i >= 0; i--) {
+      for (let i = 0; i < this.welware.length ; i++) {
 
         let { min, max, free } = this.welware[i]
 
@@ -133,11 +166,20 @@ export default {
         }
       }
 
+      for (let i = 0; i < this.welwareList.length; i++) {
+
+        this.orderContent = `${this.orderContent}${this.welwareList[i].code}*${this.welwareList[i].count}  ${this.welwareList[i].amount}\n`
+      }
+
+      this.orderContent = `${this.orderContent}\n总计  ${this.total}`
+
       this.refresh = true
 
       setTimeout(()=>{
 
         this.refresh = false
+
+        this.wait = false
 
       })
     }

@@ -6,9 +6,11 @@ import router from './router'
 import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.css'
 import './assets/css/common.css'
+import VueClipboard from 'vue-clipboard2'
 Vue.config.productionTip = false
 /* eslint-disable no-new */
 Vue.use(MintUI)
+Vue.use(VueClipboard)
 new Vue({
   el: '#app',
   router,
