@@ -70,7 +70,7 @@ export default  {
 				{ code:'E3', title:'虾', price:280, mount:1, unit:'份' },
 				{ code:'E4', title:'鱼丸', price:240, mount:1, unit:'份' },
 				{ code:'E5', title:'生蚝', price:300, mount:1, unit:'份' },
-				{ code:'E5', title:'扇贝', price:660, mount:1, unit:'份' },
+				{ code:'E6', title:'扇贝', price:660, mount:1, unit:'份' },
 			]
 		},
 		{ 
