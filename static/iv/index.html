@@ -9,11 +9,14 @@
 		<div class="iv-main-content-frame">
 			<div class="iv-main-content">
 				<div class="iv-main-body">
-					<img class="logo" src="logo.png" class="iv-main-logo" />
-					<div class="go-to-order">						
-						<a href="/menu">
-							<img src="order-button.jpg" style="width: 100%">
-						</a>
+					<img class="logo" src="logo.png"/>
+					<div class="go-to-order">
+						<div class="order-button">
+							<a href="/menu">点此点餐</a>
+						</div>
+					</div>
+					<div class="contact">
+						点餐系统开发：<a href="https://t.me/guevaratech">GuevaraTech</a>
 					</div>
 				</div>
 			</div>
@@ -48,8 +51,16 @@
 			color: #ffffff;
 		}
 		.go-to-order{
-			padding-top: 50px;
+			padding: 50px;
 			text-align: center;
+		}
+		.order-button{
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			background: #26a2ff;
+			border-radius: 5px;
 		}
 		.go-to-order>.order-button>a{
 			color: #ffffff;
