@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title>欢迎进入通达点餐系统</title>
+	</head>
+	<body>
+		<div class="iv-main-content-frame">
+			<div class="iv-main-content">
+				<div class="iv-main-body">
+					<img class="logo" src="logo.png"/>
+					<div class="go-to-order">
+						<div class="order-button">
+							<a href="/menu">点此点餐</a>
+						</div>
+					</div>
+					<div class="contact">
+						点餐系统开发联系：<a href="https://t.me/guevaratech">GuevaraTech</a>
+					</div>
+				</div>
+			</div>
+			<div class="iv-main-cover"></div>
+		</div>
+	</body>
+	<style type="text/css">
+		h1{
+			font-size: 25px;
+			text-align: center;
+			color: #ffffff;
+		}
+		.iv-main-content-frame{
+			height: 100vh;
+			width: 100vw;
+			background-image: url('homeback.png');
+			position: relative;
+		}
+		.iv-main-content{
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 10;
+		}
+		.iv-main-content>.iv-main-header{
+			background: #333333;
+			height: 100px;
+		}
+		.iv-main-body{
+			color: #ffffff;
+		}
+		.go-to-order{
+			padding-top: 50px;
+			text-align: center;
+		}
+		.order-button{
+			display: inline-block;
+			width: 100px;
+			height: 40px;
+			line-height: 40px;
+			background: #26a2ff;
+			border-radius: 5px;
+		}
+		.go-to-order>.order-button>a{
+			color: #ffffff;
+		}
+		.iv-main-content>.iv-main-body>.logo{
+			width: 100%;
+		}
+		.iv-main-content>.iv-main-body>.contact{
+			padding: 20px;
+			font-size: 12px;
+			color: rgba(238, 236, 233, 0.98);
+			text-align: center;
+		}
+		.iv-main-content>.iv-main-body>.contact>a{
+			color: rgb(115, 171, 227);
+		}
+		.iv-main-cover{
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			left: 0;
+			opacity: 0.5;
+			background: #333333;
+		}
+	</style>
+</html>
