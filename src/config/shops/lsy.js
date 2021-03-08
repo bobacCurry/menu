@@ -11,7 +11,7 @@ export default  {
 				{ code:'A6', title:'板筋', price:200, mount:5, unit:'串' },
 				{ code:'A7', title:'油边', price:200, mount:5, unit:'串' },
 				{ code:'A8', title:'麻辣排骨串', price:220, mount:5, unit:'串' },
-				{ code:'A9', title:'五花肉金针菇', price:200, mount:5, unit:'串' },
+				{ code:'A9', title:'五花肉金针菇', price:200, mount:2, unit:'串' },
 				{ code:'A10', title:'鸡脆骨', price:280, mount:5, unit:'串' },
 				{ code:'A11', title:'鸡胗', price:160, mount:5, unit:'串' },
 				{ code:'A12', title:'鸡头', price:210, mount:3, unit:'串' },
